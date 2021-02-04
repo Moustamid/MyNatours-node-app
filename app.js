@@ -7,13 +7,17 @@ const userRouter = require('./routes/userRoutes');
 const app = express();
 
 //! 1) MIDDLEWARES :
-
-app.use(morgan('dev'));
+if (process.env.NODE_ENV === 'development') {
+  app.use(morgan('dev'));
+}
 
 app.use(express.json());
+
+//* serving static files from express :
 app.use(express.static(`${__dirname}/public`));
 
 app.use((req, res, next) => {
+  // eslint-disable-next-line no-console
   console.log('Hello from the middleware 👋');
   next();
 });

@@ -3,7 +3,7 @@ const tourController = require('./../controllers/tourController');
 
 const router = express.Router();
 
-//! param Midlleware : chekes is the id is valide ...
+//! param Midlleware : checkes if the id is valide ...
 
 router.param('id', tourController.checkID);
 

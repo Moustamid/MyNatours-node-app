@@ -1,15 +1,17 @@
 const fs = require('fs');
 
-//! Tours Data
+//! ----------- Tours Data -----------
 
 const tours = JSON.parse(
   fs.readFileSync(`${__dirname}/../dev-data/data/tours-simple.json`)
 );
 
+//! ----------- Tours midlewares -----------
+
 exports.checkID = (req, res, next, val) => {
   // console.log(`Tour id is: ${val}`);
+  //* check if the is is valid :
 
-  //? check if the is is valid :
   if (req.params.id * 1 > tours.length) {
     return res.status(404).json({
       status: 'fail',
@@ -30,10 +32,10 @@ exports.checkBody = (req, res, next) => {
   next();
 };
 
-//! Route Hundlerse  :
+//! ----------- Route Hundlerse -----------  :
 
 exports.getAllTours = (req, res) => {
-  console.log(req.requestTime);
+  // console.log(req.requestTime);
 
   res.status(200).json({
     status: 'success',
