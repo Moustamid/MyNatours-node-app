@@ -5,8 +5,6 @@ const router = express.Router();
 
 //! param Midlleware : checkes if the id is valide ...
 
-router.param('id', tourController.checkID);
-
 router
   .route('/')
   .get(tourController.getAllTours)
