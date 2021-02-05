@@ -11,6 +11,7 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
+//- middleware anable us to access the req.body :
 app.use(express.json());
 
 //* serving static files from express :
